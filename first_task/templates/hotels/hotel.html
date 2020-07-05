@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ h.name }}</title>
+</head>
+<body>
+    {% block content %}
+        <h1>
+            Это страница отеля "{{ h.name }}"
+        </h1>
+        <p>
+            Отель находится в городе {{ h.city }}, на улице {{ h.streer }} по номеру {{ h.house_number }}, а
+            если вам необходим индекс ближайшего отделения почты - {{ h.index }}.
+        </p>
+        <p>
+            Данный отель имеет {{ h.rooms_number }} комнат, 5 из которых типа "эконом", 3 "бизнес" и 2 "люкс".
+        </p>
+        <p>
+            Вы можете посмотреть условия каждой комнаты кликнув по номеру комнаты снизу:
+        </p>
+        {% for n in r %}
+            &nbsp;<a href="#">{{ n.room_id }}</a>&nbsp;
+        {% endfor%}
+    {% endblock %}
+</body>
+</html>

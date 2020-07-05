@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    hotels
+{% endblock %}
+
+{% block content %}
+    <p>
+        Вот список существующих на данный момент отелей от Sokolsky's Hotels:
+        {% if hotels_list %}
+            {% for n in hotels_list %}
+                <p>
+                    <a href="{% url 'hotels:hotel' n.id %}">{{ n.name }}</a>
+                </p>
+            {% endfor %}
+        {% else %}
+            Отели не найдены
+        {% endif %}
+    </p>
+{% endblock %}
